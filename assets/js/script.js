@@ -93,12 +93,14 @@ $(".list-group").on("blur", "input[type='text']", function() {
   // get the task's position in the list of other li elements
   var index = $(this).closest(".list-group-item").index();
   // update task in array and re-save to localstorage 
-  tasks[status][index].date = date;
-  saveTasks();
+  
   // recreate span element with bootstrap class
   var taskSpan = $("<span>").addClass("badge badge-primary badge-pill").text(date);
   // replace input with span element
   $(this).replaceWith(taskSpan);
+
+  // tasks[status][index].date = date;   pulled an error
+  saveTasks();
 });
 
 
